@@ -18,7 +18,7 @@ void main(void){
 	GPIO_Port_F_Direction |= GPIO_Port_F_Pin_1; // Set Pin 1 as Output pin
 	
 	GPIO_Port_F_Direction &= (~GPIO_Port_F_Pin_4);       // Set Pin 4 as Input Pin
-	GPIO_Port_F_Pull_Up |= GPIO_Port_F_Pin_4;
+	GPIO_Port_F_Pull_Up |= GPIO_Port_F_Pin_4;            // Enable pull up resistor to Pin 4
 	
 	GPIO_Port_F_Data_Write_Pin_1 &= (~GPIO_Port_F_Pin_1); // Initialize Pin 1 Value with zero (The led is off)
 	while(1){
