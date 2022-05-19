@@ -15,7 +15,7 @@ void main(void){
 
 while(1){
   time_value();
-  if((time<prev)&&(time>=0){
+  if((time<prev)&&(prev!=0)){
 	prev--;
 	LCD_clear();
 LCD_write_no(time,0,0);
