@@ -18,7 +18,7 @@ void main(void){
 	callback(time_value);
 
 while(1){
-if(time<prev){
+if((time<prev)&&(prev!=0){
 	prev--;
 	LCD_clear();
 LCD_write_no(time,0,0);
