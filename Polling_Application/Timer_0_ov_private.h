@@ -12,5 +12,6 @@
 #define TIMSK *((volatile U8*)0X59)
 #define SREG *((volatile U8*)0X5F)
 #define OCR0 *((volatile U8*)0X5C)
+#define TIFR *((volatile U8*)0X58)
 
 #endif /* TIMER_0_OV_PRIVATE_H_ */
