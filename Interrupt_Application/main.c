@@ -4,7 +4,7 @@
  *  Created on: Oct 15, 2021
  *      Author: mwael
  */
-#include"D:/C/STD.Types.h"
+#include"STD.Types.h"
 #define F_CPU 8000000
 #include"Timer_0_ov_interface.h"
 #include"LCD_interface.h"
