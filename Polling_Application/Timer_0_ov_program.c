@@ -4,12 +4,10 @@
  *  Created on: Oct 22, 2021
  *      Author: mwael
  */
-#include"D:/C/STD.Types.h"
-#include"D:/C/bit_calc.h"
+#include"STD.Types.h"
+#include"bit_calc.h"
 #include"Timer_0_ov_private.h"
 #include"Timer_0_ov_interface.h"
-
-void (*ptr_timer) (void);
 
 U16 TCNT0_register_value;
 U16 restart_count;
@@ -22,8 +20,7 @@ void Timer_ov_init(U16 time_milliseconds){
 	TCCR0 = 0b00000010;
 	//prescaler=8
 	//Normal mode
-	set_bit(TIMSK,0); // Interrupt Enable
-	set_bit(SREG,7); // Enable GIE
+	
 }
 void time_calculate(U16 time_millisecond){
     F32 count;
@@ -35,19 +32,14 @@ void time_calculate(U16 time_millisecond){
 
 void time_value(void){
 	static U16 count=0;
+	
+	while(get_bit(TIFR,0)!=1); //polling on flag
+	set_bit(TIFR,1);           //Clearing the flag
 	count++;
+	
 	if(count==restart_count){
 		time--;
 		count=0;
 		TCNT0=TCNT0_register_value;
 	}
 	}
-
-
-void callback(void(*ptr)(void)){
-	ptr_timer=ptr;
-}
-
-void __vector_11(void){
-ptr_timer();
-}
