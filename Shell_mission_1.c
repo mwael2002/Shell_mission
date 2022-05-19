@@ -11,9 +11,6 @@
 #define GPIO_Port_F_Pin_1 0x02
 #define GPIO_Port_F_Pin_4 0x10
 
-# define system_clock_freq  16000000
-
-void delay(unsigned long);
 
 void main(void){
 	System_Clock_RCGCGPIO |= Port_F_Enable_Clock; // Enable clock on Port F
@@ -25,15 +22,14 @@ void main(void){
 	
 	GPIO_Port_F_Data_Write_Pin_1 &= (~GPIO_Port_F_Pin_1); // Initialize Pin 1 Value with zero (The led is off)
 	while(1){
-		while(GPIO_Port_F_Data_Read_Pin_4!=0);        // While loop until the the button is pushed
+		if(GPIO_Port_F_Data_Read_Pin_4==0){           // if the button is pushed  
+		while(GPIO_Port_F_Data_Read_Pin_4==0);        // Wait untill the button is released to toggle the led one time only         
 		GPIO_Port_F_Data_Write_Pin_1 ^= GPIO_Port_F_Pin_1; //  toggling the led
-		delay(16000000/20);  // 1 second delay (Assuming that one line in the for loop in the delay function takes 20 clock cycle) 
+		
 }
+	}
 }
 
-void delay(unsigned long del){
-	for(unsigned long count=0;count<del;count++);
-}
 
 
 
