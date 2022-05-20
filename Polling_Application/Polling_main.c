@@ -1,6 +1,6 @@
 /****************The Application is Counting down time and displaying it on LCD***********/
 
-#include"D:/C/STD.Types.h"
+#include"STD.Types.h"
 #define F_CPU 8000000
 #include"Timer_0_ov_interface.h"
 #include"LCD_interface.h"
