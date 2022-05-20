@@ -15,7 +15,7 @@
 void main(void){
 	SYSCTL_RCGCGPIO_R |= PORTF_Enable_CLK; // Enable clock on Port F
 	GPIO_PORTF_DEN_R |= (GPIO_PORTF_Pin_1+GPIO_PORTF_Pin_4); // Enable pin 1 and pin 4 as Digital Pins
-	GPIO_PORTF_DIR_R |= GPIO_PORTF_Pin_1 // Set Pin 1 as Output pin
+	GPIO_PORTF_DIR_R |= GPIO_PORTF_Pin_1; // Set Pin 1 as Output pin
 	
 	GPIO_PORTF_DIR_R &= (~GPIO_PORTF_Pin_4);            // Set Pin 4 as Input Pin
 	GPIO_PORTF_PUR_R |= GPIO_PORTF_Pin_4;            // Enable pull up resistor to Pin 4
